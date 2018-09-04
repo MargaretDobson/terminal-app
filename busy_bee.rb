@@ -19,5 +19,3 @@ class BusyBee < FitnessProgram
     end
 end
 
-fitness=BusyBee.new
-fitness.show_welcome_message

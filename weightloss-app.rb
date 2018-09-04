@@ -19,11 +19,21 @@ debugger = Debugger.new(true)
 
 puts " Welcome to \"Body Achieves What Mind Believe Program\""
   # \ to let progam know we want "" to print
- fitness_programs ={ one: "Busy Mums and proffesionl" , two: "Old is gold", three: "Weight loss program"}
- puts fitness_programs
- puts "please choose one of the options: one(1) , two(2) or three(3) "
- marker
- user_choice = gets.chomp
+puts "please provide your Name"
+  name = gets.chomp
+puts "How old are you?"
+  age = gets.chomp.to_i
+puts "How much do you weigh in kg?"
+  weight = gets.chomp.to_f
+puts "How tall are you in cm?"
+  height = gets.chomp.to_f
+  
+user = User.new(name, age, weight, height)  
+fitness_programs ={ one: "Busy Mums and proffesionl" , two: "Old is gold", three: "Weight loss program"}
+puts fitness_programs
+puts "please choose one of the options: one(1) , two(2) or three(3) "
+marker
+user_choice = gets.chomp
  
  debugger.log_message("user choice is " + user_choice)
  case user_choice
@@ -40,26 +50,18 @@ end
 marker
 puts selected_fitness_program.show_welcome_message
 marker
-
-puts "please provide your Name"
-name = gets.chomp
-puts "How old are you?"
-age = gets.chomp.to_i
-puts "How much do you weigh in kg?"
-weight = gets.chomp.to_f
-puts "How tall are you in cm?"
-height = gets.chomp.to_f
-
-user = User.new(name, age, weight, height)
+if (user_choice == 2 || user_choice == "two")
+    puts selected_fitness_program.attendance_app
+end      
 marker
-if selected_fitness_program
+marker
 puts " Calculated Body mass index and appropriate plan is given here\n" 
 #p user.body_mass_index
-before= body_mass_index(weight,height)
+before = body_mass_index(weight,height)
 #puts selected_fitness_program.suggested_plan(user.body_mass_index)
 puts selected_fitness_program.suggested_plan(body_mass_index(weight,height))
 marker
-  puts "Please provide your Weight after 2 weeks and update your plan".underline
+puts "Please provide your Weight after 2 weeks and update your plan".underline
 weight = gets.chomp.to_i
 
 after = body_mass_index(weight,height)

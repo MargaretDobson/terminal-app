@@ -11,5 +11,5 @@ class FitnessProgram
 end
 
 def body_mass_index(weight,height)
-  return weight/((height/100.0)**2)
+    return weight/((height/100.0)**2)
 end

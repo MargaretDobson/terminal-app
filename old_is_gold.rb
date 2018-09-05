@@ -4,7 +4,8 @@ class OldIsGold < FitnessProgram
     def show_welcome_message
         puts "welcome to our Old is gold program for over 60age people\n Please find your plan below\n 1.Laughter YoGa\n 2.Dancing Tea Party\n 3.Easy-Peasy exercise"
     end
-    def attendance_app
+    def attendance_app(days)
+        days=""
         puts "please press Y if you have come today"
         come=Array[]
       7.times do |x|
@@ -18,8 +19,8 @@ class OldIsGold < FitnessProgram
         puts "Please provide your feedback to make services more enjoyable"
       else
         puts "Thank You for your patronage"
+            # "Thank You for your patronage" (just for testing our attendance app)
       end 
-       
     end     
         
 end

@@ -1,6 +1,5 @@
 #Fitness program for seniors over 60
 require_relative "fitness_program"
-
 class OldIsGold < FitnessProgram
     def show_welcome_message
         puts "welcome to our Old is gold program for over 60age people\n Please find your plan below\n 1.Laughter YoGa\n 2.Dancing Tea Party\n 3.Easy-Peasy exercise"

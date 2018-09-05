@@ -51,17 +51,16 @@ marker
 puts selected_fitness_program.show_welcome_message
 marker
 if (user_choice == 2 || user_choice == "two")
-    puts selected_fitness_program.attendance_app
+    puts selected_fitness_program.attendance_app    
+exit        
 end      
 marker
-marker
-puts " Calculated Body mass index and appropriate plan is given here\n" 
-#p user.body_mass_index
-before = body_mass_index(weight,height)
-#puts selected_fitness_program.suggested_plan(user.body_mass_index)
+puts "Calculated Body mass index and appropriate plan is given here\n" 
+p before = body_mass_index(weight,height)
+#puts selected_fitness_program.suggested_plan(user.body_mass_index)"change during the add of more fitness programe"
 puts selected_fitness_program.suggested_plan(body_mass_index(weight,height))
 marker
-puts "Please provide your Weight after 2 weeks and update your plan".underline
+puts "Please provide your Weight after 2 weeks and update your plan".magenta
 weight = gets.chomp.to_i
 
 after = body_mass_index(weight,height)

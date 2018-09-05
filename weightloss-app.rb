@@ -3,7 +3,7 @@ require_relative "debug"
 require_relative "busy_bee"
 require_relative "old_is_gold"
 require_relative "average_joe"
-require_relative "user"
+require_relative "fitness_program"
 # Method to provide more readabilty of the display of the app
  def marker
     puts "******"*20
@@ -16,7 +16,7 @@ class String
 end
  
 
-# Main prompt for the application debugg by printing it on screen ("manual testing")
+# Main prompt for the application debugg by printing it on screen ("manual testing") dangerzone
 debugger = Debugger.new(true)
 
 puts " Welcome to \"Body Achieves What Mind Believe Program\""
@@ -32,12 +32,8 @@ puts "How much do you weigh in kg?"
 puts "How tall are you in cm?"
   height = gets.chomp.to_f
 
-  
-  
-# user = User.new(name, age, weight, height)....Just for internal purpose to see whether we are getting the right data for futher calculation
-
-fitness_programs ={ one: "Busy Mums and proffesionl" , two: "Old is gold", three: "Weight loss program"}
-puts fitness_programs
+  fitness_programs ={ one: "Busy Mums and proffesionl" , two: "Old is gold", three: "Weight loss program"}
+  puts fitness_programs
 puts "please choose one of the options: one(1) , two(2) or three(3) "
 # calling the method for better user experience
 marker 
@@ -46,11 +42,11 @@ user_choice = gets.chomp
 #  debugger.log_message("user choice is " + user_choice) just for debugging along the way of coding
  case user_choice
     when "1" , "one"
-        selected_fitness_program = BusyBee.new 
+        selected_fitness_program = BusyBee.new(name, age, weight, height)
     when  "2","two"
-        selected_fitness_program = OldIsGold.new
+        selected_fitness_program = OldIsGold.new(name, age, weight, height)
     when  "3","three"
-        selected_fitness_program = AverageJoe.new
+        selected_fitness_program = AverageJoe.new(name, age, weight, height)
     else
         abort "you haven't selected anyprogram please give your feedback so that we can improve our plans"
 end
@@ -67,7 +63,7 @@ marker
 #  just massage on screen to tell customer about their plan based on BMI calculation
 puts "Calculated Body mass index and appropriate plan is given here\n" 
 p before = body_mass_index(weight,height)
-#puts selected_fitness_program.suggested_plan(user.body_mass_index)"change during the add of more fitness programe previous idea but later decided to have method out side our class because we don't want all arguments of tha class"
+#puts selected_fitness_program.suggested_plan(user( user class changed to fitnessProgram later).body_mass_index)"change during the add of more fitness programe previous idea but later decided to have method out side our class because we don't want all arguments of tha class"
 puts selected_fitness_program.suggested_plan(body_mass_index(weight,height))
 marker
 # asking for the user input after going through our program"
